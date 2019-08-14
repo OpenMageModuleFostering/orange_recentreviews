@@ -13,7 +13,12 @@
             <ul>
             <?php foreach($_reviews->data() as $_review): ?>
                 <li class="item">
-                    <p><a href="<?php echo $_reviews->getReviewUrl($_review->getId()) ?>"><?php echo $this->htmlEscape($_review->getTitle()) ?></a> - <?php echo $this->__('by <strong>%s</strong>', $this->htmlEscape($_review->getNickname())) ?></p>
+                    <p>
+                        <a href="<?php echo $_reviews->getReviewUrl($_review->getId()) ?>"><?php echo $this->htmlEscape($_review->getTitle()) ?></a>
+                        <?php if($_reviews->showAuthor()): ?>
+                        - <?php echo $this->__('by <strong>%s</strong>', $this->htmlEscape($_review->getNickname())) ?>
+                        <?php endif ?>
+                    </p>
                     <?php if($_reviews->showRatings()): ?>
                         <?php $_votes = $_review->getRatingVotes() ?>
                         <?php if(count($_votes)): ?>
@@ -41,7 +46,9 @@
                     <?php else: ?>
                         <p><?php echo $review ?></p>
                     <?php endif ?>
+                    <?php if($_reviews->showDate()): ?>
                     <small class="date"><?php echo $this->__('(Posted on %s)', $this->formatDate($_review->getCreatedAt()), 'long') ?></small>
+                    <?php endif ?>
                 </li>
             <?php endforeach ?>
             </ul>

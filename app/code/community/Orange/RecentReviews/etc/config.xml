@@ -2,15 +2,15 @@
 <config>
     <modules>
         <Orange_RecentReviews>
-            <version>0.1.0</version>
+            <version>0.1.2</version>
         </Orange_RecentReviews>
     </modules>
 	<frontend>
 		<layout>
 			<updates>
-				<recentreviews>
+				<orange_recentreviews>
 					<file>orange_recent_reviews.xml</file>
-				</recentreviews>
+				</orange_recentreviews>
 			</updates>
 		</layout>
 	</frontend>
@@ -49,6 +49,8 @@
                 <show_ratings>1</show_ratings>
                 <limit_characters>0</limit_characters>
                 <count>3</count>
+                <show_date>1</show_date>
+                <show_author>1</show_author>
             </settings>
         </orange_recentreviews>
     </default>

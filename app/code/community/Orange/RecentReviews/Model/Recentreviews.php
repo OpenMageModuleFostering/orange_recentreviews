@@ -1,4 +1,8 @@
 <?php
+/*
+author: SB
+support: mage.ext@gmail.com
+*/
 class Orange_RecentReviews_Model_RecentReviews extends Mage_Core_Model_Abstract
 {
 	public function getConfigData($item)
@@ -28,6 +32,14 @@ class Orange_RecentReviews_Model_RecentReviews extends Mage_Core_Model_Abstract
 	public function getReviewUrl($id)
 	{
 		return Mage::getUrl('review/product/view', array('id'=> $id));
+	}
+	public function showDate()
+	{
+		return $this->getConfigData('show_date');
+	}
+	public function showAuthor()
+	{
+		return $this->getConfigData('show_author');
 	}
     public function data()
     {
